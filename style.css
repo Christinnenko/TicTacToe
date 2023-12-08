@@ -114,11 +114,11 @@ td {
   animation: flicker 1s infinite;
 }
 
-.tetris-start h2 {
+.game-start h2 {
   width: 500px;
 }
 
-.tetris-start h2 img {
+.game-start h2 img {
   width: 65px;
   height: 60px;
 }
