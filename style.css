@@ -31,7 +31,7 @@ body {
   margin: 0;
 }
 
-.tetris-wrapper {
+.game-wrapper {
   display: flex;
   gap: 100px;
   align-items: center;
@@ -44,7 +44,7 @@ body {
   height: 60px;
 }
 
-.tetris-start {
+.game-start {
   display: flex;
   flex-direction: column;
   gap: 100px;
@@ -54,7 +54,7 @@ body {
   font-size: 36px;
 }
 
-.tetris-start a {
+.game-start a {
   box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #1d242c;
   border-radius: 5px;
   background: #d0d0d04a;
@@ -69,7 +69,7 @@ body {
   padding: 32px;
 }
 
-.tetris-canvas {
+.game-canvas {
   display: flex;
   justify-content: center;
   align-items: center;
