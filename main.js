@@ -31,11 +31,7 @@ function startGame() {
 
   movesMade = 0; //обнулить кол-во щелчков по полю
 
-  // Разрешить клики по ячейкам
-  for (let i = 1; i <= 9; i++) {
-    const cell = document.getElementById(i.toString());
-    cell.addEventListener("click", cellClick);
-  }
+  enableClicks();
 }
 
 // Функция перезапуска игры
@@ -44,7 +40,7 @@ function restartGame() {
   for (let i = 1; i <= 9; i++) {
     const cell = document.getElementById(i.toString());
     cell.innerHTML = "";
-    cell.classList.remove("win", "tic", "tac", "win-combination");
+    cell.classList.remove("tic", "tac", "win-combination");
   }
   startGame();
 }
@@ -52,7 +48,7 @@ function restartGame() {
 // Функция добавления слушателя событий кнопке старта
 function listenerStartButton() {
   buttonStart.addEventListener("click", () => {
-    if (!gameOver) {
+    if (gameOver) {
       startGame(); // Если игра не запущена, начать новую игру
     } else {
       restartGame(); // Если игра уже запущена, начать заново
@@ -74,6 +70,7 @@ function cellClick() {
     // Проверка на ничью
     if (movesMade === 9 && !gameOver) {
       showDraw(); // Выводим сообщение о ничьей
+      gameOver = false; //для возможности рестарта
     } else {
       // Смена текущего игрока
       if (player === "X") {
@@ -90,6 +87,24 @@ function cellClick() {
         playerText.innerHTML = `Ход игрока: <img src="images/X.png" alt="крестик" />`;
       }
     }
+  }
+}
+
+// Функция разрешения кликов по ячейкам
+function enableClicks() {
+  // Отключить клики по ячейкам
+  for (let i = 1; i <= 9; i++) {
+    const cell = document.getElementById(i.toString());
+    cell.addEventListener("click", cellClick);
+  }
+}
+
+// Функция отключения кликов по ячейкам
+function disableClicks() {
+  // Удалить слушатели кликов по ячейкам
+  for (let i = 1; i <= 9; i++) {
+    const cell = document.getElementById(i.toString());
+    cell.removeEventListener("click", cellClick);
   }
 }
 
@@ -113,9 +128,9 @@ function checkWin() {
         .getElementById(winCombination[i][2])
         .classList.add("win-combination");
 
-      gameOver = true;
+      gameOver = false; //для возможности рестарта
       winnerPlayer = player; // сохраняем победителя для отображения на экране
-
+      disableClicks();
       showWinner();
     }
   }

@@ -82,10 +82,10 @@ body {
 
 table {
   border-collapse: collapse;
+  min-width: 600px;
 }
 
 td {
-  width: 200px;
   height: 200px;
   text-align: center;
   vertical-align: middle;
