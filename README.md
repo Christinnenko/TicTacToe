@@ -11,3 +11,8 @@
 ### Деплой проекта: https://christinnenko.github.io/TicTacToe/
 
 ![image](https://github.com/Christinnenko/TicTacToe/assets/135636897/9e0ba7a1-8c3f-4753-a172-2e2a1c8fa7c4)
+
+## Технологии:
+
+HTML, CSS, JavaScript (без использования сторонних библиотек и фреймворков согласно ТЗ)
+
